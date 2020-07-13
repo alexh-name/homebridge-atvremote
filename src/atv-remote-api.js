@@ -130,8 +130,8 @@ AtvRemoteApi.prototype.handlePost = function (appleTv, body, response) {
         args.push(appleTv.mrpPort);
         args.push('--protocol');
         args.push('mrp');
-        args.push('--id');
-        args.push('apple');
+        args.push('-i');
+        args.push(appleTv.ID);
         args.push('--mrp-credentials');
         args.push(appleTv.mrpCredentials);
     
