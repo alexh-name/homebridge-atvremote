@@ -1,20 +1,22 @@
 {
   "name": "homebridge-atvremote",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "HTTP API running on homebridge to control Apple TV.",
   "license": "MIT",
   "keywords": [
     "homebridge-plugin",
     "homebridge",
     "homebridge-atvremote",
-    "atvremote"
+    "atvremote",
+    "pyatv",
+    "atv"
   ],
   "repository": {
     "type": "git",
-    "url": "git://github.com/lukasroegner/homebridge-atvremote.git"
+    "url": "git://github.com/alexh-name/homebridge-atvremote.git"
   },
   "bugs": {
-    "url": "http://github.com/lukasroegner/homebridge-atvremote/issues"
+    "url": "http://github.com/alexh-name/homebridge-atvremote/issues"
   },
   "engines": {
     "node": ">=0.12.0",
