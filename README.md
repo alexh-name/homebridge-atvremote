@@ -12,7 +12,7 @@ Install the Python package https://github.com/postlund/pyatv on the device you a
 Then, install the plugin via npm:
 
 ```bash
-npm install https://github.com/lukasroegner/homebridge-atvremote.git -g
+npm install https://github.com/alexh-name/homebridge-atvremote.git -g
 ```
 
 Afterwards, use the `atvremote scan` and `atvremote pair` commands to get information and credentials for all Apple TVs that you want to control.
@@ -29,6 +29,7 @@ Afterwards, use the `atvremote scan` and `atvremote pair` commands to get inform
             "atvremoteCommand": "<COMMAND-FOR-ATVREMOTE>",
             "appleTvs": [
                 {
+                    "ID": "<IP-ADDRESS>",
                     "name": "<UNIQUE-NAME>",
                     "ipAddress": "<IP-ADDRESS>",
                     "mrpPort": <PORT-NUMBER>,
@@ -47,6 +48,8 @@ Afterwards, use the `atvremote scan` and `atvremote pair` commands to get inform
 **atvremoteCommand**: The fully qualified command to invoke the `atvremote` tool. Depending on the type of installation (e.g. `pip3`), it could be `python3 ~/.local/lib/python3.5/site-packages/pyatv`.
 
 **appleTvs**: A list of all devices you want to use the API with.
+
+**ID** (optional): ID (can be found with `atvremote scan` command).
 
 **name**: A name you can choose for the access via API.
 
