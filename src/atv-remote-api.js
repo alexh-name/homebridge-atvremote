@@ -164,16 +164,20 @@ AtvRemoteApi.prototype.handlePost = function (appleTv, body, response) {
                     childProcess.stdin.end();
                 }
             }
+            dataLines = data.toString().split("\n");
+            stdout = dataLines[0].toString();
         });
         
         // Waits for the process to finish
         childProcess.on('exit', function () {
           response.statusCode = 200;
+          response.write(stdout);
           response.end();
         });
     } else {
         api.platform.log('Error while executing commands.');
         response.statusCode = 400;
+        response.write(stdout);
         response.end();
     }
 }
