@@ -141,9 +141,12 @@ AtvRemoteApi.prototype.handlePost = function (appleTv, body, response) {
 
         // Handles communication
         let stdout = '';
-        childProcess.stderr.on('data', function (_) { });
+        childProcess.stderr.on('data', function (data) {
+            //api.platform.log('debug: stderr: ", data.toString());
+        });
         childProcess.stdout.on('data', function (data) {
             stdout += data.toString();
+            //api.platform.log("debug stdout 1: ", stdout);
 
             // Processes only if the stdout ends with three arrows
             if (stdout.endsWith('pyatv> ')) {
@@ -152,6 +155,7 @@ AtvRemoteApi.prototype.handlePost = function (appleTv, body, response) {
                 // Applies the next command
                 if (commands.length > 0) {
                     const currentCommand = commands.splice(0, 1)[0];
+                    //api.platform.log('debug command: ', currentCommand);
                     if (currentCommand.startsWith('wait')) {
                         setTimeout(function() {
                             childProcess.stdin.write('\n');
@@ -164,8 +168,11 @@ AtvRemoteApi.prototype.handlePost = function (appleTv, body, response) {
                     childProcess.stdin.end();
                 }
             }
+            //api.platform.log('debug stdout 2: ', data.toString());
             dataLines = data.toString().split("\n");
+            //api.platform.log('debug dataLines: ', dataLines);
             stdout = dataLines[0].toString();
+            //api.platform.log('debug stdout 3: ', stdout);
         });
         
         // Waits for the process to finish
